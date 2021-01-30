@@ -12,7 +12,7 @@
   box-shadow: 1px 1px 2px #e6e6e6;
   box-shadow: 0 0px 7px #e6e6e6, 0 2px 2px #e6e6e6;
   border: 3px solid #fff;
-  width: 100%; /* Ширина */
+  width: 300px; /* Ширина */
   //height: 100%;  /* Высота */
   -moz-transition: all 1s ease;
   -webkit-transition: all 1s ease;
