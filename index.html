@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Algorithms - Glassmorphism Design</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+
+    #particles-js {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+      background: transparent;
+      color: #333;
+    }
+
+    h1 {
+      font-weight: 600;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .container {
+      max-width: 1920px;
+      float: center;
+      margin: 0 auto;
+      justify-content: center;
+
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: calc(33.33% );
+      background: rgb(224, 224, 224);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(100px);
+      -webkit-backdrop-filter: blur(100);
+      border: 1px solid rgba(255, 255, 255, 1);
+      transform-style: preserve-3d;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      align-items: center;
+      text-align: center;
+      display: inline-block;
+      padding: 40px;
+      margin: 10px;
+      float: center;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    .card:hover {
+      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+      transform: scale(1.05) rotateY(5deg);
+
+    }
+
+    .card h2 {
+      font-weight: 500;
+      margin: 20px 0;
+    }
+
+    .card p {
+      font-weight: 400;
+      margin: 0;
+      padding: 0 20px;
+    }
+    
+    .dark-theme {
+      background-color: #121212;
+      color: #FFFFFF;
+    }
+
+    .dark-theme body {
+      background-color:  #121212;
+      color: #fff;
+    }
+    
+    .dark-theme h1 {
+      color: #FFFFFF;
+    }
+
+    .dark-theme .card {
+      background: rgba(0, 0, 0, 0.86);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(120, 117, 117, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 1);
+    }
+
+    .dark-theme .card h2 {
+      color: #FFFFFF;
+    }
+
+    .dark-theme .card p {
+      color: #BFC7D5;
+    }
+
+    #toggle-theme-button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      height: 80px;
+      width: 80px;
+      padding: 10px;
+      font-size: 0px;
+    }
+
+    .toggle-theme-button i {
+      font-size: 104px;
+    }
+
+    .icon {
+      height: 24px;
+      width: 24px;
+      font-size: 100px;
+      display: none;
+    }
+
+    #light-icon {
+      display: block;
+    }
+
+    .dark-theme #light-icon {
+      display: none;
+    }
+
+    .dark-theme #dark-icon {
+      display: block;
+    }
+
+  </style>
+  <script src="particles.js"></script>
+</head>
+<body class="light-theme">
+    <h1>Алгоритмы Искусственного Интеллекта</h1>
+    <div class="container">
+      <a href="history-of-ai.html" class="card">
+        <h2>История Искусственного Интеллекта</h2>
+        <p>Узнайте об истории искусственного интеллекта и о том, как он развивался с течением времени.</p>
+      </a>
+      <a href="linear-regression.html" class="card">
+        <h2>Линейная Регрессия</h2>
+        <p>Откройте для себя основы линейной регрессии и то, как ее можно использовать в машинном обучении.</p>
+      </a>
+      <a href="knn.html" class="card">
+        <h2>K-Nearest Neighbors (k-NN)</h2>
+        <p>Изучите алгоритм k-NN, один из самых простых и эффективных алгоритмов машинного обучения.</p>
+      </a>
+      <a href="neural-networks.html" class="card">
+        <h2>Нейронные Сети</h2>
+        <p>Поймите основы нейронных сетей и то, как они используются в искусственном интеллекте.</p>
+      </a>
+      <a href="backpropagation.html" class="card">
+        <h2>Алгоритм Обратного распространения Ошибки</h2>
+        <p>Узнайте о обратном распространении, мощном алгоритме для обучения нейронных сетей.</p>
+      </a>
+      <a href="genetic-algorithms.html" class="card">
+        <h2>Генетический Алгоритм</h2>
+        <p>Откройте для себя генетический алгоритм, мощный метод оптимизации для поиска решений сложных проблем.</p>
+      </a>
+    </div>
+    <button id="toggle-theme-button" onclick="toggleTheme()">
+      
+      <svg id="light-icon" class="icon" width="100" height="100">
+        <path d="M12.0700837,4.0003006 C11.3895108,5.17692613 11,6.54297551 11,8 C11,12.3948932 14.5439081,15.9620623 18.9299163,15.9996994 C17.5467214,18.3910707 14.9612535,20 12,20 C7.581722,20 4,16.418278 4,12 C4,7.581722 7.581722,4 12,4 C12.0233848,4 12.0467462,4.00010034 12.0700837,4.0003006 Z" fill="#000"/>
+      </svg>
+
+      <svg id="dark-icon" class="icon">
+          <rect x="0" y="0" width="1000" height="1000"/>
+          <path d="M12,15 C10.3431458,15 9,13.6568542 9,12 C9,10.3431458 10.3431458,9 12,9 C13.6568542,9 15,10.3431458 15,12 C15,13.6568542 13.6568542,15 12,15 Z" fill="#fff" fill-rule="evenodd"/>
+          <path d="M19.5,10.5 L21,10.5 C21.8284271,10.5 22.5,11.1715729 22.5,12 C22.5,12.8284271 21.8284271,13.5 21,13.5 L19.5,13.5 C18.6715729,13.5 18,12.8284271 18,12 C18,11.1715729 18.6715729,10.5 19.5,10.5 Z M16.0606602,5.87132034 L17.1213203,4.81066017 C17.7071068,4.22487373 18.6568542,4.22487373 19.2426407,4.81066017 C19.8284271,5.39644661 19.8284271,6.34619408 19.2426407,6.93198052 L18.1819805,7.99264069 C17.5961941,8.57842712 16.6464466,8.57842712 16.0606602,7.99264069 C15.4748737,7.40685425 15.4748737,6.45710678 16.0606602,5.87132034 Z M16.0606602,18.1819805 C15.4748737,17.5961941 15.4748737,16.6464466 16.0606602,16.0606602 C16.6464466,15.4748737 17.5961941,15.4748737 18.1819805,16.0606602 L19.2426407,17.1213203 C19.8284271,17.7071068 19.8284271,18.6568542 19.2426407,19.2426407 C18.6568542,19.8284271 17.7071068,19.8284271 17.1213203,19.2426407 L16.0606602,18.1819805 Z M3,10.5 L4.5,10.5 C5.32842712,10.5 6,11.1715729 6,12 C6,12.8284271 5.32842712,13.5 4.5,13.5 L3,13.5 C2.17157288,13.5 1.5,12.8284271 1.5,12 C1.5,11.1715729 2.17157288,10.5 3,10.5 Z M12,1.5 C12.8284271,1.5 13.5,2.17157288 13.5,3 L13.5,4.5 C13.5,5.32842712 12.8284271,6 12,6 C11.1715729,6 10.5,5.32842712 10.5,4.5 L10.5,3 C10.5,2.17157288 11.1715729,1.5 12,1.5 Z M12,18 C12.8284271,18 13.5,18.6715729 13.5,19.5 L13.5,21 C13.5,21.8284271 12.8284271,22.5 12,22.5 C11.1715729,22.5 10.5,21.8284271 10.5,21 L10.5,19.5 C10.5,18.6715729 11.1715729,18 12,18 Z M4.81066017,4.81066017 C5.39644661,4.22487373 6.34619408,4.22487373 6.93198052,4.81066017 L7.99264069,5.87132034 C8.57842712,6.45710678 8.57842712,7.40685425 7.99264069,7.99264069 C7.40685425,8.57842712 6.45710678,8.57842712 5.87132034,7.99264069 L4.81066017,6.93198052 C4.22487373,6.34619408 4.22487373,5.39644661 4.81066017,4.81066017 Z M4.81066017,19.2426407 C4.22487373,18.6568542 4.22487373,17.7071068 4.81066017,17.1213203 L5.87132034,16.0606602 C6.45710678,15.4748737 7.40685425,15.4748737 7.99264069,16.0606602 C8.57842712,16.6464466 8.57842712,17.5961941 7.99264069,18.1819805 L6.93198052,19.2426407 C6.34619408,19.8284271 5.39644661,19.8284271 4.81066017,19.2426407 Z" fill="#fff" fill-rule="evenodd" opacity="0.5"/>
+      </svg>
+      </button>
+      
+  
+  <script>
+    const toggleThemeButton = document.getElementById("toggle-theme-button");
+    const lightIcon = document.getElementById("light-icon");
+    const darkIcon = document.getElementById("dark-icon");
+    a = false
+    function toggleTheme() {
+        if (a == false){
+          particlesJS.load('particles-js', 'particlesblack.json', function() {
+            console.log('callback - particles.js config loaded');
+          });
+          a = true;
+        }
+        else{
+          particlesJS.load('particles-js', 'particlesWhite.json', function() {
+            console.log('callback - particles.js config loaded');
+          });
+          a = false;
+        }
+      document.body.classList.toggle("dark-theme");
+    }
+
+  </script>
+  <script>
+    particlesJS.load('particles-js', 'particlesWhite.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+  </script>
+  <div id="particles-js"></div>
+</body>
+</html>
+  
